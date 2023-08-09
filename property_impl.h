@@ -48,6 +48,7 @@ public:
     property_wrapper(const std::string &name, accessor acc) :
         m_acc(acc)
     {
+        static_assert(!std::is_pointer<M>::value, "The data type of the property is already a pointer type! The given policy cannot be used for this property.");
     }
 
     ~property_wrapper() { }
